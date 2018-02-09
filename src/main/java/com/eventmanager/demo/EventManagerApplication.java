@@ -1,3 +1,4 @@
+
 package com.eventmanager.demo;
 
 import org.springframework.boot.SpringApplication;
