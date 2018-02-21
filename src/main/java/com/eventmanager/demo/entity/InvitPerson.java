@@ -1,56 +1,61 @@
 package com.eventmanager.demo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "invit_person")
 public class InvitPerson {
 
     @Id
-    @Column(name = "person_id")
-    private Long personId;
+    @Column(name = "invit_person_id")
+    @SequenceGenerator(name="invit_person_id_seq", sequenceName="invit_person_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "invit_person_id_seq")
+    private Long invitPersonId;
 
-    @Column(name = "person_lastname")
-    private String personLastName;
+    @Column(name = "invit_person_lastname")
+    private String invitPersonLastName;
 
-    @Column(name = "person_firstname")
-    private String personFirstName;
+    @Column(name = "invit_person_firstname")
+    private String invitPersonFirstName;
 
-    @Column(name = "person_age")
-    private int personAge;
+    @Column(name = "invit_person_age")
+    private int invitPersonAge;
 
-    public Long getPersonId() {
-        return personId;
+    public InvitPerson(){}
+    public InvitPerson(String lastName, String firstName){
+        this.invitPersonLastName =lastName;
+        this.invitPersonFirstName =firstName;
     }
 
-    public void setPersonId(Long personId) {
-        this.personId = personId;
+    public Long getInvitPersonId() {
+        return invitPersonId;
     }
 
-    public String getPersonLastName() {
-        return personLastName;
+    public void setInvitPersonId(Long invitPersonId) {
+        this.invitPersonId = invitPersonId;
     }
 
-    public void setPersonLastName(String personLastName) {
-        this.personLastName = personLastName;
+    public String getInvitPersonLastName() {
+        return invitPersonLastName;
     }
 
-    public String getPersonFirstName() {
-        return personFirstName;
+    public void setInvitPersonLastName(String invitPersonLastName) {
+        this.invitPersonLastName = invitPersonLastName;
     }
 
-    public void setPersonFirstName(String personFirstName) {
-        this.personFirstName = personFirstName;
+    public String getInvitPersonFirstName() {
+        return invitPersonFirstName;
     }
 
-    public int getPersonAge() {
-        return personAge;
+    public void setInvitPersonFirstName(String invitPersonFirstName) {
+        this.invitPersonFirstName = invitPersonFirstName;
     }
 
-    public void setPersonAge(int personAge) {
-        this.personAge = personAge;
+    public int getInvitPersonAge() {
+        return invitPersonAge;
+    }
+
+    public void setInvitPersonAge(int invitPersonAge) {
+        this.invitPersonAge = invitPersonAge;
     }
 }
