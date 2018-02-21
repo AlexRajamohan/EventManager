@@ -1,6 +1,8 @@
 package com.eventmanager.demo.controller;
 
+import com.eventmanager.demo.entity.InvitGroup;
 import com.eventmanager.demo.entity.InvitPerson;
+import com.eventmanager.demo.service.serviceInterface.InvitGroupServiceInterface;
 import com.eventmanager.demo.service.serviceInterface.InvitPersonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +16,17 @@ public class InvitPersonController {
     @Autowired
     private InvitPersonServiceInterface invitPersonServiceInterface;
 
+    @Autowired
+    private InvitGroupServiceInterface invitGroupServiceInterface;
+
     @RequestMapping("/yo")
     public String afficherHello(){
 
         InvitPerson invitPerson=new InvitPerson("A", "A");
         invitPersonServiceInterface.saveInvitPerson(invitPerson);
+
+        InvitGroup invitGroup=new InvitGroup("groupe", "groupetype");
+        invitGroupServiceInterface.saveInvitGroup(invitGroup);
 
 
 /*        for (Guest guest: invitPersonServiceInterface.listAllGuest()){

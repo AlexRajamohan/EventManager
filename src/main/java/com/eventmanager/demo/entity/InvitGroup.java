@@ -1,41 +1,48 @@
-/*
 package com.eventmanager.demo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "invit_group")
 public class InvitGroup {
 
-    @Column(name = "group_id")
-    private Long groueId;
+    @Id
+    @Column(name = "invit_group_id")
+    @SequenceGenerator(name="invit_group_id_seq", sequenceName="invit_group_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "invit_group_id_seq")
+    private Long groupId;
 
-    @Column(name = "group_name")
-    private String groupeName;
+    @Column(name = "invit_group_name")
+    private String groupName;
 
-    @Column(name="group_type")
+    @Column(name="invit_group_type")
     private String groupType;
 
-    @Column(name = "group_invitable0")
+    @Column(name = "invit_group_invitable")
     private int groupInvitable;
 
 
+    public InvitGroup(){}
+    public InvitGroup(String groupName, String groupType){
+        this.groupName =groupName;
+        this.groupType=groupType;
+    }
     public Long getGroueId() {
-        return groueId;
+        return groupId;
     }
 
     public void setGroueId(Long groueId) {
-        this.groueId = groueId;
+        this.groupId = groueId;
     }
 
-    public String getGroupeName() {
-        return groupeName;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroupeName(String groupeName) {
-        this.groupeName = groupeName;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     public String getGroupType() {
@@ -54,4 +61,3 @@ public class InvitGroup {
         this.groupInvitable = groupInvitable;
     }
 }
-*/
