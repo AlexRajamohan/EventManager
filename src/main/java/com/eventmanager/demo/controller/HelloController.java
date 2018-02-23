@@ -1,4 +1,4 @@
-package com.eventmanager.demo.controller;
+/*package com.eventmanager.demo.controller;
 
 import com.eventmanager.demo.entity.Guest;
 import com.eventmanager.demo.service.serviceImpl.GuestService;
@@ -29,3 +29,4 @@ public class HelloController {
 
 
 }
+*/

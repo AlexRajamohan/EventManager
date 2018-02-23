@@ -1,4 +1,4 @@
-package com.eventmanager.demo.controller;
+/*package com.eventmanager.demo.controller;
 
 import java.security.Principal;
 
@@ -80,4 +80,4 @@ public class MainController {
         return "403Page";
     }
 
-}
+}*/

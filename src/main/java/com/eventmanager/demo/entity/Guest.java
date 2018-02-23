@@ -1,4 +1,4 @@
-package com.eventmanager.demo.entity;
+/*package com.eventmanager.demo.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -42,3 +42,4 @@ public class Guest implements Serializable{
 
     }
 }
+*/

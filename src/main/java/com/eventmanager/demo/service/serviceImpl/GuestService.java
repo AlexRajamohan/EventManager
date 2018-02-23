@@ -1,4 +1,4 @@
-package com.eventmanager.demo.service.serviceImpl;
+/*package com.eventmanager.demo.service.serviceImpl;
 
 import com.eventmanager.demo.entity.Guest;
 import com.eventmanager.demo.repository.GuestRepository;
@@ -32,3 +32,4 @@ public class GuestService implements GuestServiceInterface {
 
 
 }
+*/
