@@ -1,0 +1,27 @@
+﻿-- Table: public.guest
+
+-- DROP TABLE public.guest;
+
+CREATE SEQUENCE public.guest_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999999999999
+START 1
+CACHE 1;
+
+ALTER TABLE public.guest_id_seq
+  OWNER TO zaraki_psql;
+
+CREATE TABLE public.guest
+(
+  id bigint NOT NULL DEFAULT nextval('guest_id_seq'::regclass),
+  first_name character(55),
+  last_name character(55),
+  
+  CONSTRAINT guest_id_pk PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.guest
+  OWNER TO zaraki_psql;

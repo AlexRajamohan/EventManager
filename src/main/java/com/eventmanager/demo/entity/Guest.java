@@ -1,11 +1,23 @@
+<<<<<<< HEAD
 /*package com.eventmanager.demo.entity;
+=======
+/*
+package com.eventmanager.demo.entity;
+>>>>>>> 32d9f776e95acb7b01c1498a599471998fbf7875
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name="guest")
-public class Guest implements Serializable{
+public class Guest implements Serializable {
+
+    //    @GeneratedValue
+    @Id
+    @Column(name="id")
+    @SequenceGenerator(name="guest_id_seq", sequenceName="guest_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "guest_id_seq")
+    private Long id;
 
     @Column(name="first_name", nullable = false)
     private String firstName;
@@ -13,11 +25,14 @@ public class Guest implements Serializable{
     @Column(name= "last_name",nullable = false)
     private String lastName;
 
-    //    @GeneratedValue
-    @Id
-    @Column(name="id", nullable = false)
-    private float id;
+    public Guest() {
 
+    }
+
+    public Guest(String lastName, String firstName) {
+        this.firstName=firstName;
+        this.lastName=lastName;
+    }
 
     public String getLastName() {
         return lastName;
@@ -35,11 +50,9 @@ public class Guest implements Serializable{
         this.firstName = firstName;
     }
 
-
-    public Guest(String lastName, String firstName){
-        this.firstName=firstName;
-        this.lastName=lastName;
-
-    }
 }
+<<<<<<< HEAD
 */
+=======
+*/
+>>>>>>> 32d9f776e95acb7b01c1498a599471998fbf7875

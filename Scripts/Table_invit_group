@@ -1,0 +1,26 @@
+﻿CREATE SEQUENCE public.invit_group_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999999999999
+START 1
+CACHE 1;
+
+
+-- Table: public.invit_group
+
+-- DROP TABLE public.invit_group;
+
+CREATE TABLE public.invit_group
+(
+  invit_group_id bigint NOT NULL DEFAULT nextval('invit_group_id_seq'::regclass),
+  invit_group_name character(55),
+  invit_group_type character(55),
+  invit_group_invitable int,
+  CONSTRAINT invit_group_id_pk PRIMARY KEY (invit_group_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.invit_group
+  OWNER TO zaraki_psql;
+  
