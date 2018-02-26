@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+/*package com.eventmanager.demo.entity;
+=======
 /*
 package com.eventmanager.demo.entity;
+>>>>>>> 32d9f776e95acb7b01c1498a599471998fbf7875
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -47,4 +51,8 @@ public class Guest implements Serializable {
     }
 
 }
+<<<<<<< HEAD
 */
+=======
+*/
+>>>>>>> 32d9f776e95acb7b01c1498a599471998fbf7875
