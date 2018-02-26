@@ -1,13 +1,10 @@
-/*
-package com.eventmanager.demo.controller;*/
-/*package com.eventmanager.demo.controller;
+package com.eventmanager.demo.controller;/*package com.eventmanager.demo.controller;
 
 
 
 /**
  * Created by audrey
- *//*
-
+ */
 
 import com.eventmanager.demo.entity.Event;
 import com.eventmanager.demo.service.serviceInterface.EventServiceInterface;
@@ -56,7 +53,6 @@ public class EventController {
     }
 
 
-*/
 /*
     @PutMapping(value = "/event")
     public Event modifyEvent(@RequestParam() Long id,
@@ -70,7 +66,6 @@ public class EventController {
             }
 
             return e;
-    }*//*
+    }*/
 
-
-}*/
+}
