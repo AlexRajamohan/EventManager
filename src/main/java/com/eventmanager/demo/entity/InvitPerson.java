@@ -22,9 +22,10 @@ public class InvitPerson {
     private int invitPersonAge;
 
     public InvitPerson(){}
-    public InvitPerson(String lastName, String firstName){
+    public InvitPerson(String lastName, String firstName, int age){
         this.invitPersonLastName =lastName;
         this.invitPersonFirstName =firstName;
+        this.invitPersonAge=age;
     }
 
     public Long getInvitPersonId() {
