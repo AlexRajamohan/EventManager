@@ -4,6 +4,7 @@
 
 ######################
 
+.project
 .idea/**
 
 /src/main/webapp/content/css/main.css
