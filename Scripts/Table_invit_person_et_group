@@ -18,10 +18,12 @@ ALTER TABLE public.invit_person_id_seq
 CREATE TABLE public.invit_person
 (
   invit_person_id bigint NOT NULL DEFAULT nextval('invit_person_id_seq'::regclass),
-  invit_person_firstname character(55),
-  invit_person_lastname character(55),
+  invit_person_firstname varchar(55),
+  invit_person_lastname varchar(55),
   invit_person_age int,
-  CONSTRAINT invit_person_id_pk PRIMARY KEY (invit_person_id)
+  CONSTRAINT invit_person_id_pk PRIMARY KEY (invit_person_id),
+  CONSTRAINT invit_person_id_pku UNIQUE (invit_person_id)
+
 )
 WITH (
   OIDS=FALSE
@@ -48,10 +50,11 @@ ALTER TABLE public.invit_group_id_seq
 CREATE TABLE public.invit_group
 (
   invit_group_id bigint NOT NULL DEFAULT nextval('invit_group_id_seq'::regclass),
-  invit_group_name character(55),
-  invit_group_type character(55),
+  invit_group_name varchar(55),
+  invit_group_type varchar(55),
   invit_group_invitable int,
-  CONSTRAINT invit_group_id_pk PRIMARY KEY (invit_group_id)
+  CONSTRAINT invit_group_id_pk PRIMARY KEY (invit_group_id),
+  CONSTRAINT invit_group_id_pku UNIQUE (invit_group_id)
 )
 WITH (
   OIDS=FALSE
@@ -59,3 +62,89 @@ WITH (
 ALTER TABLE public.invit_group
   OWNER TO zaraki_psql;
   
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  CREATE SEQUENCE public.event_event_id_seq
+    INCREMENT 1
+    START 15
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+ALTER SEQUENCE public.event_event_id_seq
+    OWNER TO zaraki_psql;
+
+
+
+-- Table: public.event
+
+-- DROP TABLE public.event;
+
+CREATE TABLE public.event
+(
+    event_date timestamp with time zone NOT NULL,
+    event_type character varying COLLATE pg_catalog."default" NOT NULL,
+    event_budget real NOT NULL,
+    event_invit_by_group boolean NOT NULL,
+    event_id bigint NOT NULL DEFAULT nextval('event_event_id_seq'::regclass),
+    CONSTRAINT pk_event_id PRIMARY KEY (event_id),
+    CONSTRAINT u_event_id UNIQUE (event_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.event
+    OWNER TO zaraki_psql;
+    
+    
+    
+    
+    
+    
+    
+    CREATE SEQUENCE public.event_admin_admin_id_seq
+    INCREMENT 1
+    START 10
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
+
+ALTER SEQUENCE public.event_admin_admin_id_seq
+    OWNER TO zaraki_psql;
+
+
+
+
+-- Table: public.event_admin
+
+-- DROP TABLE public.event_admin;
+
+CREATE TABLE public.event_admin
+(
+    admin_lastname character varying COLLATE pg_catalog."default",
+    admin_firstname character varying COLLATE pg_catalog."default",
+    admin_email character varying COLLATE pg_catalog."default",
+    admin_phone character varying COLLATE pg_catalog."default",
+    admin_id bigint NOT NULL DEFAULT nextval('event_admin_admin_id_seq'::regclass),
+    CONSTRAINT pk_admin_id PRIMARY KEY (admin_id),
+    CONSTRAINT u_admin_id UNIQUE (admin_id)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.event_admin
+    OWNER TO zaraki_psql;

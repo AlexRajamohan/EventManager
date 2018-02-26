@@ -2,7 +2,11 @@ package com.eventmanager.demo.service.serviceInterface;
 
 import com.eventmanager.demo.entity.InvitPerson;
 
+import java.util.Optional;
+
 public interface InvitPersonServiceInterface {
-    public Iterable<InvitPerson> listAllInvitPerson();
-    public InvitPerson saveInvitPerson(InvitPerson invitPerson);
+    Iterable<InvitPerson> listAllInvitPerson();
+    InvitPerson save(InvitPerson invitPerson);
+    Optional<InvitPerson> getById(Long id);
+    void delete(Long id);
 }

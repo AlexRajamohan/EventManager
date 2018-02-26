@@ -5,7 +5,7 @@ import com.eventmanager.demo.entity.InvitPerson;
 import com.eventmanager.demo.service.serviceInterface.InvitGroupServiceInterface;
 import com.eventmanager.demo.service.serviceInterface.InvitPersonServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
 
 import static java.lang.Integer.parseInt;
@@ -16,16 +16,36 @@ public class InvitPersonController {
     @Autowired
     private InvitPersonServiceInterface invitPersonServiceInterface;
 
-    @Autowired
-    private InvitGroupServiceInterface invitGroupServiceInterface;
+
 
     @PostMapping("/yo")
     public String afficherHello(){
 
-        InvitPerson invitPerson=new InvitPerson("A", "A", 26);
-        invitPersonServiceInterface.saveInvitPerson(invitPerson);
+        InvitPerson invitPerson=new InvitPerson("Raja", "Alex", 26);
+        invitPersonServiceInterface.save(invitPerson);
+        InvitPerson invitPerson1=new InvitPerson("Nag's", "Ravi", 26);
+        invitPersonServiceInterface.save(invitPerson1);
+        InvitPerson invitPerson2=new InvitPerson("Seur", "Audrey", 26);
+        invitPersonServiceInterface.save(invitPerson2);
+        InvitPerson invitPerson3=new InvitPerson("Hallouf", "Simo", 26);
+        invitPersonServiceInterface.save(invitPerson3);
+        InvitPerson invitPerson4=new InvitPerson("Abich", "Sami", 26);
+        invitPersonServiceInterface.save(invitPerson4);
+        InvitPerson invitPerson5=new InvitPerson("Bang", "Hassan", 26);
+        invitPersonServiceInterface.save(invitPerson5);
+        InvitPerson invitPerson6=new InvitPerson("Mugiwara", "Luffy", 26);
+        invitPersonServiceInterface.save(invitPerson6);
+        InvitPerson invitPerson7=new InvitPerson("Roronoa", "Zoro", 26);
+        invitPersonServiceInterface.save(invitPerson7);
+
+
+
+
+
+
+
         InvitGroup invitGroup=new InvitGroup("groupe", "groupetype");
-        invitGroupServiceInterface.saveInvitGroup(invitGroup);
+//        invitGroupServiceInterface.save(invitGroup);
 
 
 /*        for (Guest guest: invitPersonServiceInterface.listAllGuest()){
@@ -43,27 +63,25 @@ public class InvitPersonController {
             System.out.println(invitPerson.getInvitPersonFirstName() + ";" + invitPerson.getInvitPersonLastName());
         }
 
-//        {"id":1,"content":"Hello, World!"}
 //        return "yo";
         return invitPersonServiceInterface.listAllInvitPerson();
     }
 
 
 
-    @PostMapping(value = "/newInvitPerson/{firstName}/{lastName}/{age}", produces = {"application/json"})
-
+    @PostMapping(value = "/newInvitPerson", produces = {"application/json"})
     public InvitPerson newInvitPerson(/*@PathVariable String firstName,*/
-                                      /*@RequestParam(defaultValue = "", required = true)*/@RequestBody String firstName,@RequestBody String lastName, @RequestBody String age
+                                      @RequestParam(defaultValue = "", required = true) String firstName,/*@RequestBody String firstName,@RequestBody String lastName, @RequestBody String age*/
 //                                      @PathVariable String lastName,
-                                      /*@RequestParam(defaultValue = "", required = true)*//*@RequestBody*//* String lastName,
-//                                      @PathVariable int age
-                                      @RequestParam(defaultValue = "12",required = true) int age*/){
+                                      @RequestParam(defaultValue = "", required = true) String lastName,/*@RequestBody*//* String lastName,
+//                                      @PathVariable int age*/
+                                      @RequestParam(defaultValue = "12",required = true) String age){
 
                   InvitPerson invitPerson = new InvitPerson(firstName, lastName, parseInt(age));
-                  invitPersonServiceInterface.saveInvitPerson(invitPerson);
+                  invitPersonServiceInterface.save(invitPerson);
 
 //                  return "yo";
-                  return invitPersonServiceInterface.saveInvitPerson(invitPerson);
+                  return invitPersonServiceInterface.save(invitPerson);
 
     }
 
@@ -80,6 +98,20 @@ public class InvitPersonController {
                   return invitPersonServiceInterface.saveInvitPerson(invitPerson);
 
     }*/
+
+
+/*    @PutMapping(value = "/invitPerson/firstName", produces = "application.json")
+    public InvitPerson putFirstName(@RequestParam() String newFirstName,
+                                    @RequestParam() String firstName,
+                                    @RequestParam() String lastName){
+
+        invitPersonServiceInterface.getById(lastName, firstName).setInvitPersonFirstName(newFirstName);
+        return invitPersonServiceInterface.getById(lastName, firstName);
+    }*/
+
+
+
+
 
 
 }

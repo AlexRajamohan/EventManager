@@ -1,3 +1,4 @@
+/*
 package com.eventmanager.demo.service.serviceImpl;
 
 import com.eventmanager.demo.entity.Event;
@@ -6,12 +7,13 @@ import com.eventmanager.demo.service.serviceInterface.EventServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
-import java.util.Optional;
 
+
+*/
 /**
  * Created by audrey
- */
+ *//*
+
 
 @Service
 public class EventService implements EventServiceInterface{
@@ -29,9 +31,10 @@ public class EventService implements EventServiceInterface{
         }
 
 
-        @Override
-        public Optional<Event> getEventById(Long id) {
-            return eventRepository.findById(id);
+       @Override
+        public Event getEventById(Long id) {
+            return null;
+//            return eventRepository.getOne(id);
         }
 
         @Override
@@ -45,3 +48,4 @@ public class EventService implements EventServiceInterface{
         }
 
 }
+*/

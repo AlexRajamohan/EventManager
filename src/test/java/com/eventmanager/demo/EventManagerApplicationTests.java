@@ -1,18 +1,19 @@
+/*
 package com.eventmanager.demo;
 
 import com.eventmanager.demo.entity.Event;
 import com.eventmanager.demo.entity.EventAdmin;
 //import com.eventmanager.demo.entity.EventQuestions;
 import com.eventmanager.demo.entity.EventQuestions;
-import com.eventmanager.demo.repository.EventRepository;
+//import com.eventmanager.demo.repository.EventRepository;
 import com.eventmanager.demo.service.serviceImpl.EventAdminService;
 //import com.eventmanager.demo.service.serviceImpl.EventQuestionsService;
 import com.eventmanager.demo.service.serviceImpl.EventQuestionsService;
-import com.eventmanager.demo.service.serviceImpl.EventService;
+//import com.eventmanager.demo.service.serviceImpl.EventService;
 import com.eventmanager.demo.service.serviceInterface.EventAdminServiceInterface;
 //import com.eventmanager.demo.service.serviceInterface.EventQuestionsServiceInterface;
 import com.eventmanager.demo.service.serviceInterface.EventQuestionsServiceInterface;
-import com.eventmanager.demo.service.serviceInterface.EventServiceInterface;
+//import com.eventmanager.demo.service.serviceInterface.EventServiceInterface;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,10 @@ import java.util.Optional;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class EventManagerApplicationTests {
-	@Autowired
-	EventServiceInterface eventService=new EventService();
+*/
+/*	@Autowired
+	EventServiceInterface eventService=new EventService();*//*
+
 	@Autowired
 	EventAdminServiceInterface eventAdminService=new EventAdminService();
 	@Autowired
@@ -36,7 +39,7 @@ public class EventManagerApplicationTests {
 
 		Date d=new Date(2018, 10, 12);
 		Event e=new Event(d, "mariage", 400, true);
-		eventService.saveEvent(e);
+//		eventService.saveEvent(e);
 		//eventService.getEventById(69878999L);
 		//eventService.listAllEvent();
 		//eventService.deleteEvent(e);
@@ -58,3 +61,4 @@ public class EventManagerApplicationTests {
 
 
 }
+*/

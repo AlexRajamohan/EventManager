@@ -6,6 +6,8 @@ import com.eventmanager.demo.service.serviceInterface.InvitGroupServiceInterface
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class InvitGroupService implements InvitGroupServiceInterface {
 
@@ -21,11 +23,15 @@ public class InvitGroupService implements InvitGroupServiceInterface {
         return invitGroupRepository.findAll();
 
     }
-
     @Override
-    public InvitGroup saveInvitGroup(InvitGroup invitGroup){
+    public InvitGroup save(InvitGroup invitGroup){
         return invitGroupRepository.save(invitGroup);
     }
 
 
+    @Override
+    public Optional<InvitGroup> getById(Long id){return invitGroupRepository.findById(id);}
+
+    @Override
+    public void delete(Long id){invitGroupRepository.deleteById(id);}
 }

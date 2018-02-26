@@ -2,7 +2,12 @@ package com.eventmanager.demo.service.serviceInterface;
 
 import com.eventmanager.demo.entity.InvitGroup;
 
+import java.util.Optional;
+
 public interface InvitGroupServiceInterface {
     Iterable<InvitGroup> listAllInvitGroup();
-    InvitGroup saveInvitGroup(InvitGroup invitGroup);
+    InvitGroup save(InvitGroup invitGroup);
+    Optional<InvitGroup> getById(Long id);
+    void delete(Long id);
+
 }

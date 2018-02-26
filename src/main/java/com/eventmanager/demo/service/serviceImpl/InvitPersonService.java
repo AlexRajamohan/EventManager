@@ -6,6 +6,8 @@ import com.eventmanager.demo.service.serviceInterface.InvitPersonServiceInterfac
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class InvitPersonService implements InvitPersonServiceInterface {
 
@@ -23,10 +25,15 @@ public class InvitPersonService implements InvitPersonServiceInterface {
     }
 
     @Override
-    public InvitPerson saveInvitPerson(InvitPerson invitPerson){
+    public InvitPerson save(InvitPerson invitPerson){
        return invitPersonRepository.save(invitPerson);
     }
 
+    @Override
+    public Optional<InvitPerson> getById(Long id){return invitPersonRepository.findById(id);}
+
+    @Override
+    public void delete(Long id){invitPersonRepository.deleteById(id);}
 
 
 

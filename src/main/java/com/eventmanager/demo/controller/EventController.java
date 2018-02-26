@@ -1,42 +1,76 @@
+/*
+package com.eventmanager.demo.controller;*/
 /*package com.eventmanager.demo.controller;
+
+
+
+/**
+ * Created by audrey
+ *//*
+
 
 import com.eventmanager.demo.entity.Event;
 import com.eventmanager.demo.service.serviceInterface.EventServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.Optional;
 
-/**
- * Created by audrey
- */
+import static java.lang.Boolean.parseBoolean;
+import static java.lang.Integer.parseInt;
 
-/*@Controller
+@RestController
 public class EventController {
 
         @Autowired
         private EventServiceInterface eventService;
 
 
-        @RequestMapping(value = "/log")
-                public String displayLoginPage(){
+        @GetMapping(value = "/event", produces = {"application/json"})
+        public Iterable<Event> getAllEvent(){
 
-                        return "signin/login";
-                }
+               return eventService.listAllEvent();
+        }
 
-        @RequestMapping(value = "/logged", method = RequestMethod.POST)
-                public String setSession(@RequestParam(value = "inputEmail") String inputEmail,
-                                         @RequestParam(value = "inputPassword") String inputPassword,
-                                         HttpServletRequest request){
+        @PostMapping(value = "/newEvent", produces = {"application/json"})
+        public Event newEvent(@RequestParam() Date date,
+                     @RequestParam() String type,
+                     @RequestParam() String budget,
+                     @RequestParam() String invitByGroup
+                                 ){
+            Boolean b=parseBoolean(invitByGroup);
 
-                        Event event=eventService.getEventById();
-                        request.getSession().setAttribute("adherent", adherent);
-                        System.out.println(event.getEvent().getSolde());
+            Event event=new Event(date, type, parseInt(budget), b );
+            return eventService.saveEvent(event);
+        }
 
-                        return "redirect:/logged?email="+inputEmail+"&password="+inputPassword;
-                }
+
+    @PostMapping(value = "/creatEvent", produces = {"application/json"})
+    public Event creatEvent(){
+            Date date =new Date();
+            Event event=new Event(date, "type", 300, false);
+            eventService.saveEvent(event);
+
+            return event;
+    }
+
+
+*/
+/*
+    @PutMapping(value = "/event")
+    public Event modifyEvent(@RequestParam() Long id,
+                             @RequestBody Event event){
+
+            Event e=eventService.getEventById(id);
+
+            if(e!=null){
+                e=event;
+                eventService.saveEvent(e);
+            }
+
+            return e;
+    }*//*
+
 
 }*/

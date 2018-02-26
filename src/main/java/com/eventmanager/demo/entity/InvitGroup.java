@@ -2,6 +2,7 @@ package com.eventmanager.demo.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -10,8 +11,8 @@ public class InvitGroup {
 
     @Id
     @Column(name = "invit_group_id")
-    @SequenceGenerator(name="invit_group_id_seq", sequenceName="invit_group_id_seq")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "invit_group_id_seq")
+    @SequenceGenerator(name="invit_group_id_seq_name", sequenceName="\"invit_group_id_seq\"", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invit_group_id_seq_name")
     private Long groupId;
 
     @Column(name = "invit_group_name")

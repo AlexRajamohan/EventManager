@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface InvitPersonRepository extends CrudRepository<InvitPerson, Long> {
+
 }

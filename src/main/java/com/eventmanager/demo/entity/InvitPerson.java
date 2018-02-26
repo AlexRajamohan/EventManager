@@ -8,8 +8,8 @@ public class InvitPerson {
 
     @Id
     @Column(name = "invit_person_id")
-    @SequenceGenerator(name="invit_person_id_seq", sequenceName="invit_person_id_seq")
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "invit_person_id_seq")
+    @SequenceGenerator(name="invit_person_id_seq", sequenceName="\"invit_person_id_seq\"", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invit_person_id_seq")
     private Long invitPersonId;
 
     @Column(name = "invit_person_lastname")
@@ -28,13 +28,13 @@ public class InvitPerson {
         this.invitPersonAge=age;
     }
 
-    public Long getInvitPersonId() {
-        return invitPersonId;
-    }
+//    public Long getInvitPersonId() {
+//        return invitPersonId;
+//    }
 
-    public void setInvitPersonId(Long invitPersonId) {
-        this.invitPersonId = invitPersonId;
-    }
+//    public void setInvitPersonId(Long invitPersonId) {
+//        this.invitPersonId = invitPersonId;
+//    }
 
     public String getInvitPersonLastName() {
         return invitPersonLastName;
