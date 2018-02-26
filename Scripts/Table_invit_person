@@ -1,0 +1,32 @@
+﻿CREATE SEQUENCE public.invit_person_id_seq
+INCREMENT 1
+MINVALUE 1
+MAXVALUE 999999999999999999
+START 1
+CACHE 1;
+
+ALTER TABLE public.invit_person_id_seq
+  OWNER TO zaraki_psql;
+
+
+
+
+-- Table: public.invit_person
+
+-- DROP TABLE public.invit_person;
+
+CREATE TABLE public.invit_person
+(
+  invit_person_id bigint NOT NULL DEFAULT nextval('invit_person_id_seq'::regclass),
+  invit_person_firstname character(55),
+  invit_person_lastname character(55),
+  invit_person_age int,
+  CONSTRAINT invit_person_id_pk PRIMARY KEY (invit_person_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.invit_person
+  OWNER TO zaraki_psql;
+
+  
