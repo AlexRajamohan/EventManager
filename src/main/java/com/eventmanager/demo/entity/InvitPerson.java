@@ -1,24 +1,26 @@
 package com.eventmanager.demo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "invit_person")
-public class InvitPerson {
+public class InvitPerson implements Serializable {
+
 
     @Id
-    @Column(name = "invit_person_id")
+    @Column(name = "invit_person_id", nullable = false)
     @SequenceGenerator(name="invit_person_id_seq", sequenceName="\"invit_person_id_seq\"", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "invit_person_id_seq")
     private Long invitPersonId;
 
-    @Column(name = "invit_person_lastname")
+    @Column(name = "invit_person_lastname", nullable = false)
     private String invitPersonLastName;
 
-    @Column(name = "invit_person_firstname")
+    @Column(name = "invit_person_firstname", nullable = false)
     private String invitPersonFirstName;
 
-    @Column(name = "invit_person_age")
+    @Column(name = "invit_person_age", nullable = false)
     private int invitPersonAge;
 
     public InvitPerson(){}
@@ -35,6 +37,17 @@ public class InvitPerson {
 //    public void setInvitPersonId(Long invitPersonId) {
 //        this.invitPersonId = invitPersonId;
 //    }
+
+
+    public Long getInvitPersonId() {
+        return invitPersonId;
+    }
+
+
+    public void setId(Long id) {
+        this.invitPersonId = id;
+    }
+
 
     public String getInvitPersonLastName() {
         return invitPersonLastName;

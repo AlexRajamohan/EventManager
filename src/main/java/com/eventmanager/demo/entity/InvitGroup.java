@@ -9,6 +9,14 @@ import javax.validation.constraints.NotNull;
 @Table(name = "invit_group")
 public class InvitGroup {
 
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
+    }
+
     @Id
     @Column(name = "invit_group_id")
     @SequenceGenerator(name="invit_group_id_seq_name", sequenceName="\"invit_group_id_seq\"", allocationSize = 1)

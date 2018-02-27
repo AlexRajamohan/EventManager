@@ -30,7 +30,7 @@ public class InvitPersonService implements InvitPersonServiceInterface {
     }
 
     @Override
-    public Optional<InvitPerson> getById(Long id){return invitPersonRepository.findById(id);}
+    public InvitPerson getById(Long id){return invitPersonRepository.getOne(id);}
 
     @Override
     public void delete(Long id){invitPersonRepository.deleteById(id);}

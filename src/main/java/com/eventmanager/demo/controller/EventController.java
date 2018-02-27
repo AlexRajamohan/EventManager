@@ -53,7 +53,6 @@ public class EventController {
     }
 
 
-/*
     @PutMapping(value = "/event")
     public Event modifyEvent(@RequestParam() Long id,
                              @RequestBody Event event){
@@ -66,6 +65,16 @@ public class EventController {
             }
 
             return e;
-    }*/
+    }
+
+
+
+    @DeleteMapping(value = "/deleteEvent")
+    public Iterable<Event> deleteEvent(@RequestParam() Long id){
+
+        eventService.deleteEvent(id);
+        return eventService.listAllEvent();
+    }
+
 
 }

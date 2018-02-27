@@ -68,7 +68,6 @@ public class Event implements Serializable{
     }
 
     public Event(Date date, String type, float budget, boolean invit_by_group) {
-       // this.id = id;
         this.date = date;
         this.type = type;
         this.budget = budget;

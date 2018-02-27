@@ -4,10 +4,7 @@ import com.eventmanager.demo.entity.InvitGroup;
 import com.eventmanager.demo.entity.InvitPerson;
 import com.eventmanager.demo.service.serviceInterface.InvitGroupServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static java.lang.Integer.parseInt;
 
@@ -44,5 +41,13 @@ public class InvitGroupController {
 //                  return "yo";
         return invitGroupServiceInterface.save(invitGroup);
 
+    }
+
+
+    @DeleteMapping(value = "/deleteInvitGroup")
+    public Iterable<InvitGroup> deleteGroup(@RequestParam() Long id){
+
+        invitGroupServiceInterface.delete(id);
+        return invitGroupServiceInterface.listAllInvitGroup();
     }
 }

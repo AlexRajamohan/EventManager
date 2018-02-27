@@ -7,6 +7,6 @@ import java.util.Optional;
 public interface InvitPersonServiceInterface {
     Iterable<InvitPerson> listAllInvitPerson();
     InvitPerson save(InvitPerson invitPerson);
-    Optional<InvitPerson> getById(Long id);
+    InvitPerson getById(Long id);
     void delete(Long id);
 }

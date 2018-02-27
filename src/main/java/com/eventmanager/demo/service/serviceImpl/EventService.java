@@ -1,4 +1,3 @@
-/*
 package com.eventmanager.demo.service.serviceImpl;
 
 import com.eventmanager.demo.entity.Event;
@@ -9,11 +8,9 @@ import org.springframework.stereotype.Service;
 
 
 
-*/
 /**
  * Created by audrey
- *//*
-
+ */
 
 @Service
 public class EventService implements EventServiceInterface{
@@ -33,8 +30,8 @@ public class EventService implements EventServiceInterface{
 
        @Override
         public Event getEventById(Long id) {
-            return null;
-//            return eventRepository.getOne(id);
+//            return null;
+            return eventRepository.getOne(id);
         }
 
         @Override
@@ -43,9 +40,8 @@ public class EventService implements EventServiceInterface{
         }
 
 
-        public void deleteEvent(Event event) {
-            eventRepository.delete(event);
+        public void deleteEvent(Long id) {
+            eventRepository.deleteById(id);
         }
 
 }
-*/

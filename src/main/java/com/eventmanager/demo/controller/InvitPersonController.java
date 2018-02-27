@@ -7,6 +7,7 @@ import com.eventmanager.demo.service.serviceInterface.InvitPersonServiceInterfac
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.web.bind.annotation.*;
+import sun.awt.AWTIcon32_java_icon16_png;
 
 import static java.lang.Integer.parseInt;
 
@@ -78,7 +79,7 @@ public class InvitPersonController {
                                       @RequestParam(defaultValue = "12",required = true) String age){
 
                   InvitPerson invitPerson = new InvitPerson(firstName, lastName, parseInt(age));
-                  invitPersonServiceInterface.save(invitPerson);
+//                  invitPersonServiceInterface.save(invitPerson);
 
 //                  return "yo";
                   return invitPersonServiceInterface.save(invitPerson);
@@ -113,5 +114,26 @@ public class InvitPersonController {
 
 
 
+    @PutMapping(value = "/invitPerson")
+    public InvitPerson modifyPerson(@RequestParam() Long id,
+                             @RequestBody InvitPerson invitPerson){
+
+        InvitPerson i=invitPersonServiceInterface.getById(id);
+
+        if(i!=null){
+            i=invitPerson;
+            invitPersonServiceInterface.save(i);
+        }
+
+        return i;
+    }
+
+
+    @DeleteMapping(value = "/deleteInvitPerson")
+    public Iterable<InvitPerson> deletePerson(@RequestParam() Long id){
+
+        invitPersonServiceInterface.delete(id);
+        return invitPersonServiceInterface.listAllInvitPerson();
+    }
 
 }
