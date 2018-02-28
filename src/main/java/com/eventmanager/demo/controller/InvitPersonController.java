@@ -116,16 +116,25 @@ public class InvitPersonController {
 
     @PutMapping(value = "/invitPerson")
     public InvitPerson modifyPerson(@RequestParam() Long id,
-                             @RequestBody InvitPerson invitPerson){
+                             @RequestParam(required = false) String lastName,
+                             @RequestParam(required = false) String firstName,
+                             @RequestParam(required = false) String age ){
 
         InvitPerson i=invitPersonServiceInterface.getById(id);
 
-        if(i!=null){
-            i=invitPerson;
-            invitPersonServiceInterface.save(i);
+        if(i!=null) {
+            if (!lastName.isEmpty()) {
+                i.setInvitPersonLastName(lastName);
+            }
+            if (!firstName.isEmpty()){
+                i.setInvitPersonFirstName(firstName);
+            }
+            if(!age.isEmpty()){
+                i.setInvitPersonAge(parseInt(age));
+            }
         }
 
-        return i;
+        return invitPersonServiceInterface.save(i);
     }
 
 

@@ -38,13 +38,7 @@ public class InvitGroup {
         this.groupName =groupName;
         this.groupType=groupType;
     }
-    public Long getGroueId() {
-        return groupId;
-    }
 
-    public void setGroueId(Long groueId) {
-        this.groupId = groueId;
-    }
 
     public String getGroupName() {
         return groupName;

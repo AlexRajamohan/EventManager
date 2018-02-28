@@ -30,7 +30,7 @@ public class InvitGroupService implements InvitGroupServiceInterface {
 
 
     @Override
-    public Optional<InvitGroup> getById(Long id){return invitGroupRepository.findById(id);}
+    public InvitGroup getById(Long id){return invitGroupRepository.getOne(id);}
 
     @Override
     public void delete(Long id){invitGroupRepository.deleteById(id);}

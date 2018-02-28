@@ -43,6 +43,29 @@ public class InvitGroupController {
 
     }
 
+    @PutMapping(value = "/invitGroup")
+    public InvitGroup modifyPerson(@RequestParam() Long id,
+                                    @RequestParam(required = false) String groupName,
+                                    @RequestParam(required = false) String groupType,
+                                    @RequestParam(required = false) String groupInvitable ){
+
+        InvitGroup i=invitGroupServiceInterface.getById(id);
+
+        if(i!=null) {
+            if (!groupName.isEmpty()) {
+                i.setGroupName(groupName);
+            }
+            if (!groupType.isEmpty()){
+                i.setGroupType(groupType);
+            }
+            if(!groupInvitable.isEmpty()){
+                i.setGroupInvitable(parseInt(groupInvitable));
+            }
+        }
+
+        return invitGroupServiceInterface.save(i);
+    }
+
 
     @DeleteMapping(value = "/deleteInvitGroup")
     public Iterable<InvitGroup> deleteGroup(@RequestParam() Long id){

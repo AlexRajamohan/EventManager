@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface InvitGroupServiceInterface {
     Iterable<InvitGroup> listAllInvitGroup();
     InvitGroup save(InvitGroup invitGroup);
-    Optional<InvitGroup> getById(Long id);
+    InvitGroup getById(Long id);
     void delete(Long id);
 
 }
